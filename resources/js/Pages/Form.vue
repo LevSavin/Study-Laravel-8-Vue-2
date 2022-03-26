@@ -182,6 +182,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
     name: 'new-form',
     data() {
@@ -207,6 +209,9 @@ export default {
         }
     },
     methods: {
+        ...mapActions({
+            setLogin: 'Common/setLogin',
+        }),
         addSender() {
             this.form.sender.id = 0;
             this.form.sender.name = '';
@@ -256,8 +261,14 @@ export default {
                 .catch();
         }
     },
+    computed: {
+        ...mapGetters({
+            login: 'Common/login',
+        }),
+    },
     created() {
         this.loadData();
+        this.setLogin('user');
     }
 }
 </script>
