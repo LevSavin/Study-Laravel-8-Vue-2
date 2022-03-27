@@ -1,1 +1,1 @@
-export const fetching = ({ fetching }) => fetching;
+export const login = ({ login }) => login;
