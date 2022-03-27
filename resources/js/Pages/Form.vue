@@ -210,7 +210,7 @@ export default {
     },
     methods: {
         ...mapActions({
-            setLogin: 'Common/setLogin',
+            setLogin: 'setLogin',
         }),
         addSender() {
             this.form.sender.id = 0;
@@ -263,7 +263,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            login: 'Common/login',
+            login: 'login',
         }),
     },
     created() {

@@ -1,1 +1,1 @@
-export const SET_FETCHING = 'App//SET_FETCHING';
+export const SET_LOGIN = 'SET_LOGIN';
