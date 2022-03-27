@@ -15,4 +15,9 @@ class Master extends Model
     {
         return $this->hasMany(Waybill::class);
     }
+
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'models_id', 'id');
+    }
 }

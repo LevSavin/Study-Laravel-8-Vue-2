@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Appointment;
 use Carbon\Carbon;
 use App\Models\Master;
 use App\Models\Sender;
@@ -13,9 +14,11 @@ use App\Http\Controllers\Controller;
 
 class WaybillController  extends Controller
 {
+
     public function create()
     {
         return [
+            'occupiedtime' => Appointment::query()->select('time'),
             'receivers' => Receiver::all(),
             'senders'   => Sender::all(),
         ];
