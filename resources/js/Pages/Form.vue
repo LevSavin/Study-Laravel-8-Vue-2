@@ -44,7 +44,7 @@
                                                 v-model="form.service.id"
                                                 class="form-control form-select"
                                             >
-                                                <option value="0">Услуга</option>
+
                                                 <option
                                                     v-for="service in services"
                                                     :key="service.id"
@@ -103,20 +103,20 @@
          return {
              form: {
                  customer: {'name': '', 'phone': ''},
-                 service: {'id': 0, 'title':''},
-                 master: { 'number': '' },
-                 waybill: { 'number': '' },
-                 time: {'id': 0},
-                 sender: { 'id': 0, 'name': '' },
-                 receiver: { 'id': 0, 'name': '', 'inn': '', 'kpp': '' },
-                 statuses: {
-                     '1': { 'date': '', 'time': '' },
-                     '2': { 'date': '', 'time': '' },
-                     '3': { 'date': '', 'time': '' },
-                     '4': { 'date': '', 'time': '' },
-                     '5': { 'date': '', 'time': '' },
-                     '6': { 'date': '', 'time': '' },
-                 }
+                 service: {'id': 1, 'title':''},
+                 time: {'id': 1},
+                 // master: { 'number': '' },
+                 // waybill: { 'number': '' },
+                 // sender: { 'id': 0, 'name': '' },
+                 // receiver: { 'id': 0, 'name': '', 'inn': '', 'kpp': '' },
+                 // statuses: {
+                 //     '1': { 'date': '', 'time': '' },
+                 //     '2': { 'date': '', 'time': '' },
+                 //     '3': { 'date': '', 'time': '' },
+                 //     '4': { 'date': '', 'time': '' },
+                 //     '5': { 'date': '', 'time': '' },
+                 //     '6': { 'date': '', 'time': '' },
+                 // }
              },
              isShowForm: false,
              isShowSenderInput: false,
@@ -185,7 +185,7 @@
                      this.$router.push({
                          name: 'tracking',
                          params: {
-                             number: this.form.waybill.number
+                             //number: this.form.waybill.number
                          }
                      });
                  })

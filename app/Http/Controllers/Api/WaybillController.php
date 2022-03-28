@@ -30,8 +30,22 @@ class WaybillController  extends Controller
 
     public function store(Request $request)
     {
-        return ['message' => 'Данные получены'];
+        //return ['message' => 'Данные получены'];
+
+        $created = Appointment::create( [
+            'name'   => $request['customer.name'],
+            'phone' => $request['customer.phone'],
+            'time_id' => $request['time.id'],
+            'service_id' => $request['service.id'],
+        ]);
+
+        if($created) {
+            return ['message' => 'Данные получены'];
+        }
+
+
 //
+//         //здесь можно запись нового клиента по проверке телефона создавать.
 //        $master = Master::firstOrCreate([
 //            'number' => $request['master.number']
 //        ]);
