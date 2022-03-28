@@ -15,7 +15,9 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->time('time');
+            $table->foreignId('time_id')
+            ->constrained('worktimes')
+            ->cascadeOnDelete();
             $table->string('name');
             $table->string('phone');
             $table->foreignId('service_id')
@@ -33,6 +35,8 @@ class CreateAppointmentsTable extends Migration
     public function down()
     {
         Schema::table('appointments', function (Blueprint $table) {
+            $table->dropForeign('time_id');
+            $table->dropColumn('time_id');
             $table->dropForeign('service_id');
             $table->dropColumn('service_id');
         });
