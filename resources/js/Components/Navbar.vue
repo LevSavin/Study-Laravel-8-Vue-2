@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img :src="img.logo" :alt="labels.APP_NAME">
+                <img :src="img.logo" :alt="labels.APP_NAME" width="100">
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,7 @@ export default {
     data() {
         return {
             img: {
-                logo: '/img/logo.svg'
+                logo: '/img/logo2.png'
             },
             labels: {
                 APP_NAME: process.env.MIX_APP_NAME

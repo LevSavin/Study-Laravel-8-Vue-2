@@ -40,6 +40,7 @@ class WaybillController  extends Controller
         ]);
 
         if($created) {
+            //return response()->json('ok');
             return ['message' => 'Данные получены'];
         }
 

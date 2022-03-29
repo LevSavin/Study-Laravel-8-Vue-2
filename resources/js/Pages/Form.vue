@@ -3,13 +3,14 @@
         <div class="row">
             <div class="form-holder ">
                 <div class="card">
+                    <h2 class="mt-5 mb-3">Запись на услугу к мастеру</h2>
 
-                    <div>
+                    <div class="p-lg-3">
                         <template v-for="worktime in worktimes">
-                            <button type="button" disabled="disabled" class="btn btn-outline-danger" v-if="occupiedtimes.find(el=>el.time_id === worktime.id)">
+                            <button type="button" disabled="disabled" class="m-2 btn btn-outline-danger" v-if="occupiedtimes.find(el=>el.time_id === worktime.id)">
                                 {{worktime.time}}
                             </button>
-                            <button type="button" v-bind:id="worktime.id" @click="addAppointment(worktime.id)"  class="btn btn-outline-success" v-else>
+                            <button type="button" v-bind:id="worktime.id" @click="addAppointment(worktime.id)"  class="m-2 btn btn-outline-success" v-else>
                                 {{worktime.time}}
                             </button>
                         </template>
@@ -77,10 +78,7 @@
                             </div>
 
 
-
-
-
-                            <h2 v-if="worktimes[this.timeId]">Выбрано время: {{(worktimes.find(n => n.id === this.timeId)).time}}</h2>
+                            <h2 v-if="this.timeId">Выбрано время: {{(worktimes.find(n => n.id === this.timeId)).time}}</h2>
 
                              <div class="form-button mt-4 d-flex justify-content-center">
 
@@ -182,12 +180,13 @@
              this.form.time.id = this.timeId; //  помещаем в форму выбранное время.
              axios.post('/api/waybills', this.form)
                  .then(() => {
-                     this.$router.push({
-                         name: 'tracking',
-                         params: {
-                             //number: this.form.waybill.number
-                         }
-                     });
+                     location.reload();
+                     // this.$router.push({
+                     //     name: 'tracking',
+                     //     params: {
+                     //         //number: this.form.waybill.number
+                     //     }
+                     // });
                  })
                  .catch();
          }
