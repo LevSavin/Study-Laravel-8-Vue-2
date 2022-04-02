@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 //Auth::routes();
 
-Route::get('/', function () {
-    return redirect('/form');
-});
+//Route::get('/', function () {
+//    return redirect('/form');
+//});
 
 Route::get('/{any?}', function () {
     return view('layouts.app');

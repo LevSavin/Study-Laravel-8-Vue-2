@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\ServiceController;
+use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\WaybillController;
@@ -19,6 +21,23 @@ Route::get('/waybills/create', [WaybillController::class, 'create']);
 Route::post('/waybills', [WaybillController::class, 'store']);
 Route::get('/waybills/{number}', [WaybillController::class, 'show']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::post('login', [UserController::class, 'login']);
+Route::post('register', [UserController::class, 'register']);
+Route::post('logout', [UserController::class, 'logout'])->middleware('auth:sanctum');
+
+Route::group(['prefix' => 'services', 'middleware' => 'auth:sanctum'], function () {
+    Route::get('/', [ServiceController::class, 'index']);
+    Route::post('add', [ServiceController::class, 'add']);
+    Route::get('edit/{id}', [ServiceController::class, 'edit']);
+    Route::post('update/{id}', [ServiceController::class, 'update']);
+    Route::delete('delete/{id}', [ServiceController::class, 'delete']);
 });
+
+
+
+
+
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
