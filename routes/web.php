@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 //Auth::routes();
 
 Route::get('/', function () {
-    return redirect('/form');
+    return redirect('/main');
 });
 
 Route::get('/{any?}', function () {
