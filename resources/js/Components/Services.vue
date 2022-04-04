@@ -46,6 +46,7 @@ export default {
             axios.get('/api/services')
                 .then(response => {
                     this.services = response.data;
+                    console.log(response.data);
                 })
                 .catch(function (error) {
                     console.error(error);

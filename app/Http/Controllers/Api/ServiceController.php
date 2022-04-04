@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
@@ -9,21 +9,21 @@ use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
+
     public function index()
     {
-        //$services = Service::all()->toArray();
         $services = Service::query()->where('user_id',Auth::id())->get()->toArray();
         return array_reverse($services);
+
     }
 
     public function add(Request $request)
     {
 
         $service = new Service([
+            'user_id'=>Auth::id(),
             'name' => $request->name,
             'description' => $request->description,
-            //'user_id'=>$request->user_id,
-            'user_id'=>Auth::id(),
             'price'=>$request->price,
         ]);
         $service->save();
@@ -37,7 +37,7 @@ class ServiceController extends Controller
         return response()->json($service);
     }
 
-    public function update($id, Request $request)
+    public function update(Request $request, $id)
     {
         $service = Service::find($id);
         $service->update($request->all());
@@ -52,4 +52,10 @@ class ServiceController extends Controller
 
         return response()->json('The service successfully deleted');
     }
+
+    public function showAll(Request $request)
+    {
+        return response(Service::all());
+    }
+
 }

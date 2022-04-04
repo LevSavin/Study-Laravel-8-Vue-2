@@ -9,20 +9,16 @@ const routes = [
         component: require('../Pages/Home').default,
         'name': 'home'
     },
-
-
     {
         path: '/about',
         component: require('../Pages/About').default,
         'name': 'about'
     },
-
     {
         name: 'register',
         path: '/register',
         component: require('../Pages/Register').default,
     },
-
     {
         name: 'login',
         path: '/login',
@@ -48,9 +44,15 @@ const routes = [
         path: '/services/edit/:id',
         component: require('../Components/EditService').default
     },
-
-
-
+    {
+        name: 'show_service',
+        path: '/services/show',
+        component: require('../Components/Services').default
+    },
+    {
+        name: 'clients',
+        path: '/clients'
+    },
     {
         path: '/not-found',
         component: require('../Pages/NotFound').default,

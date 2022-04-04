@@ -9,15 +9,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Service extends Model
 {
     use HasFactory;
-    protected  $fillable = [
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id',
         'name',
         'description',
+        'time_interval',
         'price',
-        'user_id',
-    ];
+        ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(Service::class, 'user_id', 'id');
     }
+
 }

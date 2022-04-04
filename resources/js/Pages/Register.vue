@@ -12,9 +12,9 @@
                     <div class="card-body">
                         <form>
                             <div class="form-group row">
-                                <label for="name" class="col-sm-4 col-form-label text-md-right">Name</label>
+                                <label for="firstname" class="col-sm-4 col-form-label text-md-right">FName</label>
                                 <div class="col-md-6">
-                                    <input id="name" type="email" class="form-control" v-model="name" required
+                                    <input id="firstname" type="text" class="form-control" v-model="firstname" required
                                            autofocus autocomplete="off">
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
 export default {
     data() {
         return {
-            name: "",
+            firstname: "",
             email: "",
             password: "",
             error: null
@@ -66,7 +66,7 @@ export default {
             if (this.password.length > 0) {
                 axios.get('/sanctum/csrf-cookie').then(response => {
                     axios.post('api/register', {
-                        name: this.name,
+                        firstname: this.firstname,
                         email: this.email,
                         password: this.password
                     })
