@@ -1,26 +1,32 @@
 <template>
     <div class="app">
-        <Navbar></Navbar>
-        <router-view></router-view>
-        <MainFooter :homeUrl="'/'"></MainFooter>
+        <SideBar></SideBar>
+        <div class="content">
+            <router-view></router-view>            
+        </div>
     </div>
 </template>
 
 <script>
-import Navbar from './Components/Navbar.vue';
-import MainFooter from './Components/MainFooter.vue';
+import SideBar from './Pages/SideBar.vue';
+import MainTable from './Pages/MainTable.vue';
 
 export default {
     name: 'app',
     components: {
-        Navbar,
-        MainFooter,
+        SideBar,
+        MainTable
     },
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .app {
     height: 100%;
+    background: rgb(242, 236, 236, 0.49);
+    
+    .content {
+        margin-left: 256px;
+    }
 }
 </style>

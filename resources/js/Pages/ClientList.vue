@@ -41,7 +41,7 @@
             renderRows() {
                 const rows = [];
 
-                for (let i = 0; i <= 23; i++) {
+                for (let i = 10; i <= 18; i++) {
                     let client = null;
                     if (i === 7 || i === 11) { // для примера
                         client = {
