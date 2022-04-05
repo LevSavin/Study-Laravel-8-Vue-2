@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import WelcomePage from "@/components/WelcomePage.vue";
+import WelcomePage from "@/pages/WelcomePage.vue";
 
 Vue.use(VueRouter);
 
