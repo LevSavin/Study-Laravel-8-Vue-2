@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <div class="wrapper">
-            <router-view />
+            <router-view @sign-in="setAuth" />
         </div>
     </div>
 </template>
@@ -9,15 +9,31 @@
 export default {
     data() {
         return {
-            isAuth: true,
-        }
+            isAuth: false,
+        };
+    },
+    methods: {
+        setAuth(ev) {
+            this.isAuth = ev;
+            if (ev === true) {
+                this.$router.push("/personalpage").catch(() => {});
+            } else {
+                this.$router.push("/welcomepage").catch(() => {});
+            }
+        },
     },
     mounted() {
-        if(this.isAuth) {
-            this.$router.push('/welcomepage').catch(() => {});
+        if (this.$route.name === "NotFound") {
+            this.$router.push("/404").catch(() => {});
+        } else {
+            if (this.isAuth) {
+                this.$router.push("/personalpage").catch(() => {});
+            } else {
+                this.$router.push("/welcomepage").catch(() => {});
+            }
         }
     },
-}
+};
 </script>
 
 <style lang="scss">
