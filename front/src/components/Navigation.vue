@@ -2,7 +2,10 @@
     <div class="navigation">
         <ul>
             <li>
-                <a href="#">Настройки</a>
+                <router-link to="/personalpage/bookingtable">Расписание</router-link>
+            </li>
+            <li>
+                <router-link to="/personalpage/preferences">Настройки</router-link>
             </li>
             <li>
                 <a href="#">Услуги</a>
@@ -22,23 +25,23 @@
 
 <script>
 export default {
-    name: 'navigation',
-}
+    name: "NavigationComp",
+};
 </script>
 
 <style lang="scss" scoped>
-    .navigation{
-        font-size: 16px;
-        line-height: 21px;
-        color: #897E7E;
+.navigation {
+    font-size: 16px;
+    line-height: 21px;
+    color: #897e7e;
 
-        ul{
-            padding-left: 20px;
+    ul {
+        padding-left: 20px;
 
-            a{
-                text-decoration: none;
-                color: #897E7E;
-            }
+        a {
+            text-decoration: none;
+            color: #897e7e;
         }
     }
+}
 </style>

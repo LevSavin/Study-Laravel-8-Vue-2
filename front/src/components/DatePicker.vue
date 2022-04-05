@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name: 'datepicker',
+    name: 'DatePicker',
 }
 </script>
 

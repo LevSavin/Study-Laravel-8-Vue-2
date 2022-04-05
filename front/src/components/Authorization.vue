@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'authorization',
+    name: 'AuthBtn',
 }
 </script>
 
@@ -22,10 +22,6 @@ export default {
             border-radius: 10px;
             box-sizing: border-box;
             padding: 12px 16px;
-            position: absolute;
-            bottom: 42px;
-            left: 78px;
-            right: 78px;
         }
     }
 </style>

@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         getResult() {
-            this.result = this.login + this.pass;
+            this.$emit('sign-in', true)
         },
     },
 };

@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import UserInfo from '../../../resources/js/Components/UserInfo.vue';
-import DatePicker from '../../../resources/js/Components/DatePicker.vue';
-import Navigation from '../../../resources/js/Components/Navigation.vue';
-import Authorization from '../../../resources/js/Components/Authorization.vue'
+import UserInfo from '@/components/UserInfo.vue';
+import DatePicker from '@/components/DatePicker.vue';
+import Navigation from '@/components/Navigation.vue';
+import Authorization from '@/components/Authorization.vue'
 
 export default {
-    name: 'sidebar',
+    name: 'SideBar',
     components: {
         UserInfo,
         DatePicker,
@@ -28,7 +28,7 @@ export default {
     .container{
         background: #ABEDAA;
         width: 256px;
-        position: fixed;
+        position: fixeabd;
         top: 0;
         left: 0;
         height: 100vh;
