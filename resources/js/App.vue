@@ -2,13 +2,13 @@
     <div class="app">
         <SideBar></SideBar>
         <div class="content">
-            <router-view></router-view>            
+            <router-view></router-view>
         </div>
     </div>
 </template>
 
 <script>
-import SideBar from './Pages/SideBar.vue';
+import SideBar from '../../front/src/components/SideBar.vue';
 import MainTable from './Pages/MainTable.vue';
 
 export default {
@@ -24,7 +24,7 @@ export default {
 .app {
     height: 100%;
     background: rgb(242, 236, 236, 0.49);
-    
+
     .content {
         margin-left: 256px;
     }
