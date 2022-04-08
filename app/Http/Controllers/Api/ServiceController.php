@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,9 +12,16 @@ class ServiceController extends Controller
 {
     public function index()
     {
+
         //$services = Service::all()->toArray();
         $services = Service::query()->where('user_id',Auth::id())->get()->toArray();
-        return array_reverse($services);
+        $user = User::where('id',Auth::id())->get()->toArray();
+        //return array_reverse($services);
+        $response = [
+            'services' => $services,
+            'user'=>$user,
+        ];
+       return response()->json($response);
     }
 
     public function add(Request $request)

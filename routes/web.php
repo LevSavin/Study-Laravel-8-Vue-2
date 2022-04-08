@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Auth::routes();
+Auth::routes();
 
 //Route::get('/', function () {
 //    return redirect('/form');
@@ -23,3 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{any?}', function () {
     return view('layouts.app');
 })->where('any', '[\/\w\.-]*');
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

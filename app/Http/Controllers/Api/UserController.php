@@ -55,15 +55,18 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $success = true;
             $message = 'User login successfully';
+            $user = Auth::user();
         } else {
             $success = false;
             $message = 'Unauthorised';
+            $user = null;
         }
 
         // response
         $response = [
             'success' => $success,
             'message' => $message,
+            'user' => $user,
         ];
         return response()->json($response);
     }
@@ -74,7 +77,9 @@ class UserController extends Controller
     public function logout()
     {
         try {
+            //Auth::logout();
             Session::flush();
+
             $success = true;
             $message = 'Successfully logged out';
         } catch (\Illuminate\Database\QueryException $ex) {
@@ -88,5 +93,10 @@ class UserController extends Controller
             'message' => $message,
         ];
         return response()->json($response);
+    }
+
+    public function getUser(){
+        $user = Auth::user();
+        return response()->json(['user' => $user]);
     }
 }
