@@ -26,7 +26,7 @@ Route::get('/waybills/{number}', [WaybillController::class, 'show']);
 
 Route::post('login', [UserController::class, 'login']);
 Route::post('register', [UserController::class, 'register']);
-Route::post('logout', [UserController::class, 'logout'])->middleware('auth:sanctum');
+Route::post('logout', [UserController::class, 'logout']);//->middleware('auth:sanctum');
 Route::get('user', [UserController::class, 'getUser'])->middleware('auth:sanctum');
 
 Route::group(['prefix' => 'services', 'middleware' => 'auth:sanctum'], function () {
@@ -37,8 +37,6 @@ Route::group(['prefix' => 'services', 'middleware' => 'auth:sanctum'], function 
     Route::post('update/{id}', [ServiceController::class, 'update']);
     Route::delete('delete/{id}', [ServiceController::class, 'delete']);
 });
-
-
 
 
 Route::middleware('auth:sanctum')->get('test', function () {
