@@ -1,8 +1,13 @@
 const routes = [
     {
-        path: '/form',
-        component: require('../Pages/Form').default,
-        'name': 'new-form'
+        path: '/main',
+        component: require('../Pages/MainTable').default,
+        'name': 'main-table'
+    },
+    {
+        path: '/main/:date',
+        component: require('../Pages/MainTable').default,
+        'name': 'main-table'
     },
     {
         path: '/',
@@ -56,6 +61,16 @@ const routes = [
         component: require('../Pages/NotFound').default,
         name: '404'
     },
+    {
+        path: '/scheduler',
+        component: require('../Pages/Scheduler').default,
+        name: 'scheduler'
+    },
+    // {
+    //     path: '/scheduler/:date',
+    //     component: require('../Pages/ClientList').default,
+    //     name: 'schedulerDate'
+    // },
     {
         path: '*',
         component: require('../Pages/NotFound').default,
