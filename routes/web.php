@@ -14,12 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Auth::routes();
+Auth::routes();
 
-Route::get('/', function () {
-    return redirect('/main');
-});
+//Route::get('/', function () {
+//    return redirect('/form');
+//});
 
 Route::get('/{any?}', function () {
     return view('layouts.app');
 })->where('any', '[\/\w\.-]*');
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
