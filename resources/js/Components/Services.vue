@@ -24,11 +24,11 @@
                 <td>{{ service.created_at }}</td>
                 <td>{{ service.updated_at }}</td>
                 <td>
-                    <div class="btn-group" role="group">
+                    <!--<div class="btn-group" role="group">
                         <router-link :to="{name: 'editservice', params: { id: service.id }}" class="btn btn-primary">Edit
                         </router-link>
                         <button class="btn btn-danger" @click="deleteService(service.id)">Delete</button>
-                    </div>
+                    </div>-->
                 </td>
             </tr>
             </tbody>
@@ -42,7 +42,8 @@
 export default {
     data() {
         return {
-            services: []
+            services: [],
+            user: null,
         }
     },
     created() {
@@ -51,6 +52,7 @@ export default {
                 .then(response => {
                     console.log(response.data);
                     this.services = response.data.services;
+                    this.user = response.data.user;
 
                 })
                 .catch(function (error) {
