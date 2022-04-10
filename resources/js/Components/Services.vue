@@ -7,6 +7,8 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Price</th>
+                <th>Time</th>
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Actions</th>
@@ -17,6 +19,8 @@
                 <td>{{ service.id }}</td>
                 <td>{{ service.name }}</td>
                 <td>{{ service.description }}</td>
+                <td>{{ service.price }}</td>
+                <td>{{ service.interval }}</td>
                 <td>{{ service.created_at }}</td>
                 <td>{{ service.updated_at }}</td>
                 <td>
@@ -45,7 +49,9 @@ export default {
         axios.get('/sanctum/csrf-cookie').then(response => {
             axios.get('/api/services')
                 .then(response => {
-                    this.services = response.data;
+                    console.log(response.data);
+                    this.services = response.data.services;
+
                 })
                 .catch(function (error) {
                     console.error(error);

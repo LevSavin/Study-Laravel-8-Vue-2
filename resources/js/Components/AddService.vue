@@ -16,6 +16,12 @@
                         <label>Цена</label>
                         <input type="text" class="form-control" v-model="service.price">
                     </div>
+
+                    <div class="form-group">
+                        <label>Интервал</label>
+                        <input type="time" class="form-control" v-model="service.interval">
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Add Service</button>
                 </form>
             </div>
