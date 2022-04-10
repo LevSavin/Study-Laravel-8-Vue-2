@@ -15,31 +15,20 @@ return [
     |
     */
 
-    'paths' => [
-        'api/*',
-        'login',
-        'logout',
-        'register',
-        'user/password',
-        'forgot-password',
-        'reset-password',
-        'sanctum/csrf-cookie',
-        'user/profile-information',
-        'email/verification-notification',
-        ],
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*','localhost:8082'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
     'allowed_headers' => ['*'],
 
-    'exposed_headers' => ['XSRF-TOKEN', 'X-XSRF-TOKEN'],
+    'exposed_headers' => [],
 
     'max_age' => 0,
 
-    'supports_credentials' => true,
+    'supports_credentials' => false,
 
 ];

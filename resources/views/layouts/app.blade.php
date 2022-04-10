@@ -17,23 +17,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-@if (Auth::check())
-    <script>
-        window.Laravel = {!!json_encode([
-            'isLoggedin' => true,
-            'user' => Auth::user()
-        ])!!}
-    </script>
-@else
-    <script>
-        window.Laravel = {!!json_encode([
-            'isLoggedin' => false
-        ])!!}
-    </script>
-@endif
-
-
-
     <div class="wrapper" id="app">
         <app></app>
     </div>
