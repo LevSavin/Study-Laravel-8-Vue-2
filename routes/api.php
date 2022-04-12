@@ -38,6 +38,7 @@ Route::group(['prefix' => 'services', 'middleware' => 'auth:sanctum'], function 
 });
 
 Route::group(['prefix' => 'master','middleware' => 'auth:sanctum'], function () {
+    Route::post('/events/oneday', [MasterEventController::class,'geteventsoneday']);
     Route::resource('/events', MasterEventController::class);
 });
 

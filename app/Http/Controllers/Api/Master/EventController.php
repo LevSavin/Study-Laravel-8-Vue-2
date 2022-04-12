@@ -16,7 +16,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::with(['user','service'])->where('master_id',Auth::id())->get();
+        $events = Event::with(['user','service'])->where('master_id',Auth::id())->orderBy('datetime', 'asc')->get();
         return response()->json(['events'=>$events]);
     }
 
@@ -84,5 +84,16 @@ class EventController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //получить записи к мастеру на выбранный день.
+    public function geteventsoneday(Request $request ) {
+        //dd($request);
+        $day = $request->day;
+
+        $events = Event::with(['user','service'])->where('master_id',Auth::id())
+            ->whereDate('datetime',$day)
+            ->orderBy('datetime', 'asc')->get();
+        return response()->json(['eventsoneday'=>$events]);
     }
 }
