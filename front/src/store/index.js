@@ -1,5 +1,8 @@
+
 import Vue from 'vue'
 import Vuex from 'vuex'
+//require('./bootstrap');
+
 
 Vue.use(Vuex)
 

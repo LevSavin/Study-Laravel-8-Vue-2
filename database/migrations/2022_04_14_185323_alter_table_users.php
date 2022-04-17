@@ -14,9 +14,10 @@ class AlterTableUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('lastname')->after('name')->nullable()->default(null);
-            $table->string('patronymic')->after('lastname')->nullable()->default(null);
-            $table->string('profession')->after('patronymic')->nullable()->default(null);
+            $table->string('phone')->after('email');
+            $table->string('lastname')->after('name');
+            $table->string('patronymic')->after('lastname')->nullable();
+            $table->string('profession')->after('patronymic');
         });
     }
 

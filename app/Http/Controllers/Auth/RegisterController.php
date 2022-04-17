@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'patronymic' => ['nullable','string', 'max:255'],
             'profession' => ['nullable','string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -73,6 +74,7 @@ class RegisterController extends Controller
             'patronymic' => $data['patronymic'],
             'profession' => $data['profession'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
     }

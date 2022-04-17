@@ -24,6 +24,7 @@ class User extends Authenticatable
         'patronymic',
         'profession',
         'email',
+        'phone',
         'password',
     ];
 
