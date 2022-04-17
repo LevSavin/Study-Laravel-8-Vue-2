@@ -8,6 +8,7 @@
                         <label>Name</label>
                         <input type="text" class="form-control" v-model="service.name">
                     </div>
+
                     <div class="form-group">
                         <label>Описание</label>
                         <input type="text" class="form-control" v-model="service.description">
@@ -16,6 +17,11 @@
                     <div class="form-group">
                         <label>Цена</label>
                         <input type="text" class="form-control" v-model="service.price">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Длительность</label>
+                        <input type="time" class="form-control" v-model="service.interval">
                     </div>
                     <button type="submit" class="btn btn-primary">Update Service</button>
                 </form>
@@ -35,6 +41,7 @@ export default {
         axios.get('/sanctum/csrf-cookie').then(response => {
             axios.get(`/api/services/edit/${this.$route.params.id}`)
                 .then(response => {
+                    console.log(response.data);
                     this.service = response.data;
                 })
                 .catch(function (error) {

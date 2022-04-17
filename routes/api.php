@@ -1,12 +1,15 @@
 <?php
 
-use App\Http\Controllers\API\ServiceController;
+
+use App\Http\Controllers\Api\Master\EventController as MasterEventController;
+use App\Http\Controllers\Api\Master\ServiceController;
+
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\AuthToken\AuthController;
 use App\Http\Controllers\GetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\WaybillController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +21,6 @@ use App\Http\Controllers\Api\WaybillController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::get('/waybills/create', [WaybillController::class, 'create']);
-Route::post('/waybills', [WaybillController::class, 'store']);
-Route::get('/waybills/{number}', [WaybillController::class, 'show']);
 
 
 Route::post('login', [UserController::class, 'login']);
@@ -37,6 +36,14 @@ Route::group(['prefix' => 'services', 'middleware' => 'auth:sanctum'], function 
     Route::post('update/{id}', [ServiceController::class, 'update']);
     Route::delete('delete/{id}', [ServiceController::class, 'delete']);
 });
+
+Route::group(['prefix' => 'master','middleware' => 'auth:sanctum'], function () {
+    Route::post('/events/oneday', [MasterEventController::class,'geteventsoneday']);
+    Route::resource('/events', MasterEventController::class);
+});
+
+
+
 
 
 Route::middleware('auth:sanctum')->get('test', function () {

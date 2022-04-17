@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 use Illuminate\Database\QueryException;
@@ -21,6 +21,9 @@ class UserController extends Controller
         try {
             $user = new User();
             $user->name = $request->name;
+            $user->lastname = $request->lastname;
+            $user->patronymic = $request->patronymic;
+            $user->profession = $request->profession;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
 

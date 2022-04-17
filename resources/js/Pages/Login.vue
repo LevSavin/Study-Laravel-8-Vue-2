@@ -67,7 +67,7 @@ export default {
                                 //console.log(response.data);
                                 if (response.data.success) {
                                     console.log(response.data.success);
-                                    this.$router.go('/dashboard')
+                                    this.$router.push('/dashboard')
                                 } else {
                                     this.error = response.data.message
                                 }

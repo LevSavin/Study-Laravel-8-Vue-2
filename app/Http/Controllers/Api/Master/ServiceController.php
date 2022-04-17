@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Api\Master;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
@@ -14,8 +14,10 @@ class ServiceController extends Controller
     {
 
         //$services = Service::all()->toArray();
-        $services = Service::query()->where('user_id',Auth::id())->get()->toArray();
-        $user = User::where('id',Auth::id())->get()->toArray();
+        //$services = Service::query()->where('user_id',Auth::id())->get()->toArray();
+        $services = Service::where('user_id',Auth::id())->get();
+
+        $user = User::where('id',Auth::id())->get();
         //return array_reverse($services);
         $response = [
             'services' => $services,
@@ -33,6 +35,7 @@ class ServiceController extends Controller
             //'user_id'=>$request->user_id,
             'user_id'=>Auth::id(),
             'price'=>$request->price,
+            'interval'=>$request->interval,
         ]);
         $service->save();
 

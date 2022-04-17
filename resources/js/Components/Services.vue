@@ -7,6 +7,8 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Price</th>
+                <th>Time</th>
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Actions</th>
@@ -17,14 +19,16 @@
                 <td>{{ service.id }}</td>
                 <td>{{ service.name }}</td>
                 <td>{{ service.description }}</td>
+                <td>{{ service.price }}</td>
+                <td>{{ service.interval }}</td>
                 <td>{{ service.created_at }}</td>
                 <td>{{ service.updated_at }}</td>
                 <td>
-                    <div class="btn-group" role="group">
+                    <!--<div class="btn-group" role="group">
                         <router-link :to="{name: 'editservice', params: { id: service.id }}" class="btn btn-primary">Edit
                         </router-link>
                         <button class="btn btn-danger" @click="deleteService(service.id)">Delete</button>
-                    </div>
+                    </div>-->
                 </td>
             </tr>
             </tbody>
@@ -38,14 +42,18 @@
 export default {
     data() {
         return {
-            services: []
+            services: [],
+            user: null,
         }
     },
     created() {
         axios.get('/sanctum/csrf-cookie').then(response => {
             axios.get('/api/services')
                 .then(response => {
-                    this.services = response.data;
+                    console.log(response.data);
+                    this.services = response.data.services;
+                    this.user = response.data.user;
+
                 })
                 .catch(function (error) {
                     console.error(error);
