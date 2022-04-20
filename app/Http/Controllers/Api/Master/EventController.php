@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Master;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\Workday;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -90,10 +91,16 @@ class EventController extends Controller
     public function geteventsoneday(Request $request ) {
         //dd($request);
         $day = $request->day;
+        $master_id = Auth::id();
 
-        $events = Event::with(['user','service'])->where('master_id',Auth::id())
+        $events = Event::with(['user','service'])->where('master_id',$master_id)
             ->whereDate('datetime',$day)
             ->orderBy('datetime', 'asc')->get();
-        return response()->json(['eventsoneday'=>$events]);
+
+        $worktime = Workday::where('master_id',$master_id)->where('date', $day)->first();
+        return response()->json([
+            'eventsoneday'=>$events,
+            'worktime'=>$worktime
+            ]);
     }
 }
