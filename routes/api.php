@@ -8,6 +8,7 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\AuthToken\AuthController;
 use App\Http\Controllers\GetController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,10 +23,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::post('login', [UserController::class, 'login']);
-Route::post('register', [UserController::class, 'register']);
-Route::post('logout', [UserController::class, 'logout']);//->middleware('auth:sanctum');
+Auth::routes();
+//Route::post('login', [UserController::class, 'login']);
+//Route::post('register', [UserController::class, 'register']);
+//Route::post('logout', [UserController::class, 'logout']);//->middleware('auth:sanctum');
 Route::get('user', [UserController::class, 'getUser'])->middleware('auth:sanctum');
 
 Route::group(['prefix' => 'services', 'middleware' => 'auth:sanctum'], function () {
