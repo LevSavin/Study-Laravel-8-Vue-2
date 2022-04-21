@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Api\Master\EventController as MasterEventController;
+use App\Http\Controllers\Api\Master\ProfileController;
 use App\Http\Controllers\Api\Master\ServiceController;
 
 use App\Http\Controllers\API\UserController;
@@ -38,9 +39,11 @@ Route::group(['prefix' => 'services', 'middleware' => 'auth:sanctum'], function 
     Route::delete('delete/{id}', [ServiceController::class, 'delete']);
 });
 
-Route::group(['prefix' => 'master','middleware' => 'auth:sanctum'], function () {
+Route::group(['prefix' => 'master','middleware' => 'auth:sanctum','as' => 'master.'], function () {
     Route::post('/events/oneday', [MasterEventController::class,'geteventsoneday']);
     Route::resource('/events', MasterEventController::class);
+    Route::get('/profile', [ProfileController::class,'index'])->name('index');
+    Route::post('/profile/update', [ProfileController::class,'update'])->name('update');
 });
 
 
