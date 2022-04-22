@@ -5,7 +5,7 @@ use App\Http\Controllers\Api\Master\EventController as MasterEventController;
 use App\Http\Controllers\Api\Master\ProfileController;
 use App\Http\Controllers\Api\Master\ServiceController;
 
-use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\AuthToken\AuthController;
 use App\Http\Controllers\GetController;
 use Illuminate\Http\Request;
