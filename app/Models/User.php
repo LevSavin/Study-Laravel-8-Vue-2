@@ -13,6 +13,18 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable; //HasApiTokens;
 
+
+    public static $availableFields = [
+        'id',
+        'name',
+        'lastname',
+        'patronymic',
+        'email',
+        'phone',
+        'profession',
+        'password',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
