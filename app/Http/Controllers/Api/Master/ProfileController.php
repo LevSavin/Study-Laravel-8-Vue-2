@@ -12,7 +12,10 @@ class ProfileController extends Controller
 {
     public function index() {
         //$user = Auth::user();
-        $user = User::query()->select(User::$availableFields)->where('id', Auth::id())->first();
+        $user = User::query()->select(User::$availableFields)
+            ->where('id', Auth::id())
+            ->with('services')
+            ->first();
 
         $response = [
             'user' => $user

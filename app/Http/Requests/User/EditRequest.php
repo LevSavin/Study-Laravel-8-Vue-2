@@ -31,7 +31,6 @@ class EditRequest extends FormRequest
             'phone' => ['string', 'max:255'],
             'password' => ['string', 'min:8', 'confirmed'],
             'profession' => ['string', 'max:255'],
-
         ];
     }
 }

@@ -31,7 +31,6 @@ Auth::routes();
 Route::get('user', [UserController::class, 'getUser'])->middleware('auth:sanctum');
 
 Route::group(['prefix' => 'services', 'middleware' => 'auth:sanctum'], function () {
-
     Route::get('/', [ServiceController::class, 'index']);
     Route::post('add', [ServiceController::class, 'add']);
     Route::get('edit/{id}', [ServiceController::class, 'edit']);
@@ -45,9 +44,6 @@ Route::group(['prefix' => 'master','middleware' => 'auth:sanctum','as' => 'maste
     Route::get('/profile', [ProfileController::class,'index'])->name('index');
     Route::post('/profile/update', [ProfileController::class,'update'])->name('update');
 });
-
-
-
 
 
 Route::middleware('auth:sanctum')->get('test', function () {
