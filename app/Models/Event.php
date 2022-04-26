@@ -9,6 +9,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Event extends Model
 {
     use HasFactory;
+
+    public static $availableFields = [
+        'id',
+        'name',
+        'lastname',
+        'phone',
+        'service_id',
+        'datetime',
+        'master_id',
+        'status'
+    ];
+
     protected  $fillable = [
         'name',
         'lastname',
@@ -18,6 +30,7 @@ class Event extends Model
         'master_id',
         'status',
     ];
+
 
     public function user(): BelongsTo
     {
