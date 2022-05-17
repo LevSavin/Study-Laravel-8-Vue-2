@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFixpriceToEventsTable extends Migration
+class AddCommentToEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddFixpriceToEventsTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->decimal('fixprice')->after('status')->nullable();
+            $table->text('comment')->after('fixprice')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddFixpriceToEventsTable extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->dropColumn('fixprice');
+            $table->dropColumn('comment');
         });
     }
 }
