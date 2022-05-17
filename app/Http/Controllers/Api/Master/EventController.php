@@ -106,7 +106,12 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //TODO add EditRequest
+        $event = Event::find($id);
+        $event->update($request->all());
+        return response()->json('The event successfully updated');
+
+        //return response()->json(['message'=>$request]);
     }
 
     /**
