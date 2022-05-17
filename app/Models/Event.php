@@ -18,7 +18,9 @@ class Event extends Model
         'service_id',
         'datetime',
         'master_id',
-        'status'
+        'status',
+        'fixprice',
+        'comment',
     ];
 
     protected  $fillable = [
@@ -29,6 +31,8 @@ class Event extends Model
         'datetime',
         'master_id',
         'status',
+        'fixprice',
+        'comment',
     ];
 
 

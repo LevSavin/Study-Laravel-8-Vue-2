@@ -29,6 +29,8 @@ class CreateRequest extends FormRequest
             'phone' => ['required', 'string', 'max:20'],
             'service_id'=>['required', 'integer'],
             'datetime' => ['required', 'date'],
+            'comment' => ['nullable', 'string'],
+            'fixprice' => ['required', 'string'],
         ];
     }
 
@@ -46,7 +48,7 @@ class CreateRequest extends FormRequest
             'lastname' => 'Фамилия',
             'phone' => 'Телефон',
             'datetime' => 'День',
-
+            'fixprice' => 'Цена',
         ];
     }
 }
